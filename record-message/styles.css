@@ -1,0 +1,118 @@
+/* ---------------------------------CONTAINER */
+.record-text-container{
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    overflow-y: auto;
+    width: 340.39px;
+}
+
+
+.dtv-container, .kh-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    height: fit-content;
+    margin-top: 20px;
+    
+}
+
+
+/* -------------------------------EMOTION------------------------ */
+
+/* ---------------------neutral */
+
+.dtv-container .neutral div, .kh-container .neutral div{
+    width: 30%;
+    height: 1px;
+    border-bottom: 2px solid rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+
+.dtv-container .neutral, .kh-container .neutral{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 25%;
+}
+
+
+/* ---------------------negative */
+/* .dtv-container .negative div, .kh-container .negative div{
+    width: 30%;
+    height: 1px;
+    margin-bottom: 20px;
+}
+
+.dtv-container .negative, .kh-container .negative{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100px;
+}
+
+
+.kh-container .negative div{
+    transform: rotate(45deg);
+} */
+
+/* -----------------------------------------------AVATAR--------------------- */
+
+
+.dtv-container .avatar-icon  , .kh-container .avatar-icon{
+    width: 20%;
+}
+
+.dtv-container .avatar-icon > div, .kh-container .avatar-icon > div{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 40px;
+
+}
+
+.dtv-container .avatar-icon > div{
+    background-color: rgb(2, 175, 241);
+    border-radius: 50%;
+    
+}
+
+.kh-container .avatar-icon > div{
+    background-color: gray;
+    border-radius: 50%;
+}
+
+.dtv-container .avatar-icon img, .kh-container .avatar-icon img{
+    width: 70%;
+    height: 70%;
+    
+}
+
+
+/* --------------------------------------------CONTENT */
+
+
+.dtv-container .dtv-content, .kh-container .kh-content{
+    width: 50%;
+}
+.dtv-container .dtv-content > p:last-child, .kh-container .kh-content > p:last-child{
+    font-style:initial;
+    color: rgba(0,0,0,0.7);
+    font-size:  13px !important;
+}
+
+
+.dtv-container .dtv-header , .kh-container .kh-header {
+    font-weight: 700;
+}
+
+.dtv-container .dtv-header #time, .kh-container .kh-header #time{
+    font-size: 10px;
+    font-weight: 100;
+}

@@ -1,0 +1,19 @@
+.section8{
+    margin-bottom: 20px;
+}
+
+.section8 .first-row,
+.section8 .second-row > div{
+    display: flex;
+    align-items: center;
+}
+
+.section8 .first-row{
+    justify-content: space-between;
+}
+
+.section8 .second-row > div p{
+    width: var(--key-width);
+
+}
+

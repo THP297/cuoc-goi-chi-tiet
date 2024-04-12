@@ -1,0 +1,19 @@
+.section5{
+    margin-bottom: 20px;
+}
+
+.section5 .first-row,
+.section5 .second-row > div{
+    display: flex;
+    align-items: center;
+}
+
+.section5 .first-row{
+    justify-content: space-between;
+}
+
+.section5 .second-row > div p{
+    width: var(--key-width);
+
+}
+

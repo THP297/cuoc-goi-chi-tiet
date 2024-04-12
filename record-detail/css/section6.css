@@ -1,0 +1,20 @@
+.section6{
+    margin-bottom: 20px;
+}
+
+
+.section6 .first-row,
+.section6 .second-row > div{
+    display: flex;
+    align-items: center;
+}
+
+.section6 .first-row{
+    justify-content: space-between;
+}
+
+.section6 .second-row > div p{
+    width: var(--key-width);
+
+}
+

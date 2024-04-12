@@ -1,0 +1,73 @@
+.section4{
+    margin-bottom: 20px;
+}
+
+.section4 .second-row{
+    border: 1px solid rgba(0,0,0,0.7);
+}
+
+
+.section4 .second-row .record{
+    display: flex;
+}
+
+.section4 .second-row .record .speaker{
+    width: 5%;
+}
+
+.section4 .second-row .record .record-timeline{
+    position: relative;
+    display: flex;
+    width: 95%;
+    cursor: pointer;
+}
+
+
+.section4 .second-row .record .record-timeline .non-data{
+    background-color: rgb(201, 200, 200);
+}
+
+
+/* ----------------------------record has data */
+.section4 .second-row .record .record-timeline .data .agent-decibel,
+.section4 .second-row .record .record-timeline .data .customer-decibel{
+    background-color: rgba(0,0,0,0.1);
+    height: 75px;
+    position: relative;
+    width: 100%;
+}
+
+.section4 .second-row .record .record-timeline .data .agent-sentiment,
+.section4 .second-row .record .record-timeline .data .customer-sentiment{
+    height: 10px;
+    background-color: rgb(154, 216, 235);
+    position: relative;
+    width: 100%;
+}
+
+
+.record-straight {
+    position: absolute;
+    height: 100%; /* Full height of the timeline */
+    width: 2px;
+    background-color: blue;
+    display: none; /* Hide initially */
+    left: 0; /* Initial position */
+    pointer-events: none; /* Ensures it doesn't interfere with other mouse events */
+}
+
+.record-time {
+    position: absolute;
+    top: 0;
+    background: #f0f0f0;
+    padding: 5px;
+    border-radius: 4px;
+    display: none; /* Hide initially */
+    pointer-events: none; /* Ensures it doesn't interfere with other mouse events */
+}
+
+.decibel-rect {
+    position: absolute;
+    bottom: 0; /* Align to the bottom */
+    background-color: rgb(41, 93, 153); /* Semi-transparent blue */
+}

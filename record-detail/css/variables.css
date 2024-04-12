@@ -1,0 +1,46 @@
+:root {
+    --parameter-font-size: 0.875rem;
+    --parameter-color: rgb(110, 110, 110);
+    --section-font-size: 1.2rem;
+    --content-padding: 23px;
+    /* section3 */
+    /* No longer needed: --emotion-text--font-size: 0.8125rem; */
+    /* section5 - 9 */
+    --key-width: 17%;
+  }
+  
+  .headline {
+    font-size: var(--section-font-size);
+  }
+  
+  .parameter-attr {
+    color: var(--parameter-color);
+    font-size: var(--parameter-font-size);
+    padding: 10px 0 0 0;
+    font-family: AmazonEmber_Rg, Helvetica, sans-serif;
+  }
+  
+  .content-padding {
+    padding: var(--content-padding);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: white;
+  }
+  
+  .parameter-value {
+    font-size: 0.875rem;
+    font-family: AmazonEmber_Md, AmazonEmber_Rg, Helvetica, sans-serif;
+    font-weight: 400;
+  }
+  
+  @media screen and (min-width: 1024px) and (max-width: 1415px) {
+    :root {
+        --key-width: 25%;
+    }
+  }
+
+  @media screen and (min-width: 1415px)  {
+    :root {
+        --key-width: 20%;
+    }
+  }
+  

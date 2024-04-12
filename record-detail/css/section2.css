@@ -1,0 +1,126 @@
+.section2{
+    margin-bottom: 20px;
+}
+
+.section2 .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* --------------------------------COL1 */
+
+.section2 .row .col1{
+    width: 65%;
+}
+.section2 .row .col1 div{
+    display: flex;
+    align-items: center;
+}
+
+
+/* ------------------------first div */
+.section2 .row .first-div{
+    margin-top: 23px;
+}
+
+.section2 .row .first-div svg{
+    margin-right: 10px;
+}
+
+.section2 .row  .first-div > div:first-child{
+    font-weight: 700;
+    color: rgb(74, 74, 74);
+}
+
+.section2 .row  .first-div > div:first-child::after{
+    content: "";
+    width: 1px;
+    height: 16px;
+    background-color: rgba(0,0,0,0.2);
+    margin: 0px 10px 0px 10px;
+}
+
+
+/* ------------------------second div, third-div */
+.section2 .row .col1 .third-div,
+.section2 .row .col1 .second-div{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.section2 .row .col1 .third-div > div:nth-child(1),
+.section2 .row .col1 .third-div > div:nth-child(2),
+.section2 .row .col1 .second-div > div:nth-child(1),
+.section2 .row .col1 .second-div > div:nth-child(2),
+.section2 .row .col1 .second-div > div:nth-child(3)
+{
+    width: 23%;
+}
+
+.section2 .row .col1 .second-div div:nth-child(4){
+    width: 30%;
+}
+
+.section2 .row .col1 .third-div .parameter,
+.section2 .row .col1 .second-div .parameter{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.third-div > div:nth-child(1)::after,
+.second-div > div:nth-child(1)::after,
+.second-div > div:nth-child(2)::after,
+.second-div > div:nth-child(3)::after {
+    content: "";
+    width: 1px;
+    height: 80%;
+    background-color: rgba(0,0,0,0.2);
+    margin: 0px 10px 0px 10px;
+}
+
+
+
+.section2 .row .col1 .third-div > div,
+.section2 .row .col1 .second-div > div{
+    height: 74px;
+    padding: 14px 14px 14px 0px;
+}
+
+.section2 .row .col1 .second-div > div{
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+
+}
+
+.section2 .row .col1 .third-div div p:nth-child(1),
+.section2 .row .col1 .second-div div p:nth-child(1){
+    font-family: AmazonEmber_Md, AmazonEmber_Rg, Helvetica, sans-serif;
+    font-weight: 700;
+    color: rgb(70, 70, 70);
+
+}
+
+/* --------------------------------COL2 */
+.section2 .row .col2{
+    width: 34%;
+    height: 251px;
+}
+
+
+@media screen and (max-width:1200px) {
+    .section2 .row {
+        display: block;
+    }
+
+    .section2 .row .col1 {
+        margin-bottom: 20px;
+    }
+
+    .section2 .row .col1,
+    .section2 .row .col2{
+        width: 100%;
+    }
+    
+}

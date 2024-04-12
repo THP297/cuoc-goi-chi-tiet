@@ -1,0 +1,192 @@
+
+.section3{
+    margin-bottom: 20px;
+}
+
+
+
+/* common */
+
+.section3 .second-row,
+.section3 .third-row{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 23px;
+}
+
+.section3 .second-row > div
+{
+    width: 32.5%;
+    border: 1px solid rgb(211, 211, 211);
+    padding: 23px;
+}
+
+
+/* ------------------first row */
+
+.section3 .first-row > p{
+    font-size: var(--section-font-size);
+}
+
+.section3 .first-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* -------------------- second row --------------------*/
+
+.section3 #emotion-wrapper{
+    margin: 40px 0px 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section3 .emotion{
+    display: flex;
+    margin-right: 14px;
+}
+
+.section3 .emotion > *{
+    margin-right: 5px;
+}
+
+.section3 .emotion-text{
+    font-size: var(--emotion-text--font-size);
+    color: var(--parameter-color);
+}
+
+.section3 .second-row .rec-chart{
+    width: fit-content;
+    margin: 23px auto;
+
+}
+
+/* ------------------col 2 */
+
+.section3 .sentiment-emotion:nth-child(1) div,
+.section3 .sentiment-emotion:nth-child(2) div,
+.section3 .sentiment-emotion:nth-child(3) div{
+    width: 10px;
+    height: 10px;
+}
+
+
+.section3 .second-row #sentiment-above{
+    background-color: rgb(211, 209, 209);
+    height: 42px;
+    width: 80px;
+}
+
+.section3 .second-row #sentiment-below{
+    background-color: rgb(250, 81, 45);
+    width: 80px;
+    height: 69px;
+}
+
+
+.section3 .sentiment-emotion:nth-child(1) div{
+    background-color:rgb(250, 81, 45);
+
+}
+
+.section3 .sentiment-emotion:nth-child(2) div{
+    background-color:rgb(113, 190, 159);
+}
+
+
+.section3 .sentiment-emotion:nth-child(3) div{
+    background-color: rgb(211, 209, 209);
+}
+
+
+
+/* ------------------col 3 */
+
+.section3 .talk-emotion:nth-child(1) div,
+.section3 .talk-emotion:nth-child(2) div,
+.section3 .talk-emotion:nth-child(3) div{
+    width: 10px;
+    height: 10px;
+}
+
+.section3 .second-row #talk-above{
+    background-color: rgb(120, 224, 234);
+    height: 31px;
+    width: 80px;
+}
+
+.section3 .second-row #talk-below{
+    background-color: rgb(80, 107, 138);
+    width: 80px;
+    height: 79px;
+}
+
+.section3 .talk-emotion:nth-child(1) div{
+    background-color:rgb(80, 107, 138);
+
+}
+
+.section3 .talk-emotion:nth-child(2) div{
+    background-color:rgb(120, 224, 234);
+}
+
+
+.section3 .talk-emotion:nth-child(3) div{
+    background-color: rgb(248, 219, 128);
+}
+
+
+/* ------------------ third row ----------------- */
+
+
+
+.section3 .third-row{
+    border: 1px solid rgb(211, 211, 211);
+}
+
+.section3 .third-row .straight{
+    width: 1px;
+    height: 50px;
+    background-color: rgb(211, 211, 211);
+    margin: auto;
+}
+
+
+.section3 .third-row .col {
+    width: 32.5%;
+    padding: 23px;
+}
+
+.section3 .third-row .col div{
+    display: flex;
+    align-items: center;
+}
+
+.section3 .third-row .col div p{
+    width: 70%;
+}
+
+
+@media screen and (max-width:1200px) {
+    .section3 .second-row > div{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .section3 .second-row
+    {
+        display: block;
+    }
+
+    .section3 .third-row .col{
+        padding: 0px;
+    }
+
+    .section3 .third-row{
+        display: block;
+        padding: 23px;
+    }
+    .section3 .third-row .straight{
+        display: none;
+    }
+}
