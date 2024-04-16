@@ -1,0 +1,77 @@
+/* CSS for overall body layout */
+body {
+	display: flex;
+	height: 100vh;
+	background-color: #1e90ff;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	flex-direction: row;
+}
+
+/* Color definitions moved to CSS as custom properties */
+:root {
+	--avatar-grey--light: #f2f2f2;
+	--avatar-grey--dark: #999;
+	--avatar-grey--darker: #606161;
+}
+
+/* Main default styles for avatar */
+.avatar--default {
+	position: relative;
+	overflow: hidden;
+	width: 130px;
+	height: 130px;
+}
+
+/* .avatar--default::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	width: 70%;
+	height: 44%;
+	margin: 0 0 0 -35%;
+	border-radius: 100% 100% 0 0;
+}
+
+.avatar--default::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 19%;
+	width: 40%;
+	height: 40%;
+	margin: 0 0 0 -20%;
+	border-radius: 50%;
+} */
+
+/* Color option one */
+.avatar--default.default--one {
+	background-color: var(--avatar-grey--light);
+	border-radius: 50%;
+	border: 5px solid var(--avatar-grey--darker);
+}
+
+/* .avatar--default.default--one::before {
+	background-color: var(--avatar-grey--darker);
+} */
+
+/* .avatar--default.default--one::after {
+	background-color: var(--avatar-grey--darker);
+	box-shadow: 0 0 0 4px var(--avatar-grey--light);
+} */
+
+/* Color option two */
+.avatar--default.default--two {
+	background-color: var(--avatar-grey--light);
+	border-radius: 50%;
+}
+
+/* .avatar--default.default--two::before {
+	background-color: var(--avatar-grey--dark);
+} */
+
+/* .avatar--default.default--two::after {
+	background-color: var(--avatar-grey--dark);
+	box-shadow: 0 0 0 4px var(--avatar-grey--light);
+} */

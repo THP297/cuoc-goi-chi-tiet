@@ -3,52 +3,34 @@ import { data } from "./data.js";
 const recordData = data.record;
 
 const timelineContainer = document.querySelector(".record-timeline");
-const originalTimelineContainerWidth =
-  timelineContainer.getBoundingClientRect().width;
+const dataContainer = document.querySelector(".record-timeline .data");
+const nonDataContainer = document.querySelector(".record-timeline .non-data");
+const customerDecibel = document.querySelector(
+  ".record-timeline .data .customer-decibel"
+);
+const agentDecibel = document.querySelector(
+  ".record-timeline .data .agent-decibel"
+);
+const customerSentiment = document.querySelector(
+  ".record-timeline .data .customer-sentiment"
+);
+const agentSentiment = document.querySelector(
+  ".record-timeline .data .agent-sentiment"
+);
+const recordTimeLine = document.querySelector(
+  ".section4 .second-row .record .record-timeline .timeline"
+);
 
 setTimeout(() => {
-  const dataContainer = document.querySelector(".record-timeline .data");
-  const nonDataContainer = document.querySelector(".record-timeline .non-data");
-  const customerDecibel = document.querySelector(
-    ".record-timeline .data .customer-decibel"
-  );
-  const agentDecibel = document.querySelector(
-    ".record-timeline .data .agent-decibel"
-  );
-  const customerSentiment = document.querySelector(
-    ".record-timeline .data .customer-sentiment"
-  );
-  const agentSentiment = document.querySelector(
-    ".record-timeline .data .agent-sentiment"
-  );
+  const width = 4.1 * recordData.durationSeconds;
+  dataContainer.style.width = `${width}px`;
 
-  const baseDuration = 330; // Standard full width corresponds to 330 seconds
-  const widthPercentage = (recordData.durationSeconds / baseDuration) * 100;
-
-  dataContainer.style.width = `${widthPercentage}%`;
-  nonDataContainer.style.width = `${100 - widthPercentage}%`;
-
-  if (recordData.durationSeconds >= baseDuration) {
-    nonDataContainer.style.display = "none"; // Hide non-data if duration exceeds 330 seconds
-    timelineContainer.style.overflowX = "auto"; // Enable horizontal scrolling
-    const timelineContainerWidth =
-      (timelineContainer.getBoundingClientRect().width * widthPercentage) / 100;
-    const dataContainerWidth = (widthPercentage * timelineContainerWidth) / 100;
-
-    dataContainer.style.width = `${dataContainerWidth}px`;
-    customerDecibel.style.width = `${dataContainerWidth}px`;
-    agentDecibel.style.width = `${dataContainerWidth}px`;
-    customerSentiment.style.width = `${dataContainerWidth}px`;
-    agentSentiment.style.width = `${dataContainerWidth}px`;
-
-    var totalWidth = timelineContainerWidth;
-  } else {
-    var totalWidth = timelineContainer.getBoundingClientRect().width;
-  }
+  recordTimeLine.style.width = `${
+    parseInt(dataContainer.style.width) + parseInt(nonDataContainer.clientWidth)
+  }px`;
 
   const maxDbHeight = 60;
   const dbScale = maxDbHeight / 100;
-  const perSecondWidth = totalWidth / 330;
   const gapWidth = 1;
 
   recordData.spoken.forEach((segment) => {
@@ -62,18 +44,20 @@ setTimeout(() => {
         ? document.querySelector(".record-timeline .data .agent-sentiment")
         : document.querySelector(".record-timeline .data .customer-sentiment");
 
-    let minLeft = totalWidth,
-      maxRight = 0;
+    let minLeft = 0;
+    let maxRight = 0;
 
     Object.keys(segment.decibelLevels).forEach((second, index) => {
+      // tính chiều cao cho decibel
       const dbValue = parseFloat(segment.decibelLevels[second].split(" ")[0]);
       const height = dbValue * dbScale;
-      const secondOffset = second - segment.startTimestamp;
-      console.log(originalTimelineContainerWidth);
-      const rectWidth = originalTimelineContainerWidth / 330 - gapWidth;
 
-      const leftPosition =
-        secondOffset * perSecondWidth + segment.startTimestamp * perSecondWidth;
+      // tính chiều rộng
+      const secondOffset = second - segment.startTimestamp;
+      const rectWidth = 4.1 - gapWidth;
+
+      // tính điểm bắt đầu
+      const leftPosition = secondOffset * 4.1 + segment.startTimestamp * 4.1;
 
       const rect = document.createElement("div");
       rect.className = "decibel-rect";
@@ -90,7 +74,7 @@ setTimeout(() => {
 
     const sentimentBar = document.createElement("div");
     sentimentBar.style.position = "absolute";
-    sentimentBar.style.height = "10px";
+    sentimentBar.style.height = "8px";
     sentimentBar.style.left = `${minLeft}px`;
     sentimentBar.style.width = `${maxRight - minLeft}px`;
     sentimentBar.style.bottom = "0";
@@ -99,69 +83,80 @@ setTimeout(() => {
     sentimentContainer.appendChild(sentimentBar);
   });
 
-  if (recordData.durationSeconds >= baseDuration) {
-    document
-      .querySelector(".record-timeline .data")
-      .addEventListener("mousemove", function (e) {
-        const straight = document.querySelector(".record-straight");
-        const second = document.querySelector(".record-time");
-        const bounds = this.getBoundingClientRect();
-        const x = e.clientX - bounds.left;
+  timelineContainer.style.overflowX = "auto"; // Enable horizontal scrolling
+  customerDecibel.style.width = `${width}px`;
+  agentDecibel.style.width = `${width}px`;
+  customerSentiment.style.width = `${width}px`;
+  agentSentiment.style.width = `${width}px`;
 
-        straight.style.left = `${x}px`;
-        straight.style.display = "block";
+  document
+    .querySelector(".record-timeline .data")
+    .addEventListener("mousemove", function (e) {
+      const straight = document.querySelector(".record-straight");
+      const second = document.querySelector(".record-time");
+      const bounds = this.getBoundingClientRect();
+      const x = e.clientX - bounds.left;
+      straight.style.left = `${x}px`;
+      straight.style.display = "block";
 
-        second.style.left = `${x}px`; // Offset by 5px
-        second.style.display = "block";
+      second.style.left = `${x}px`; // Offset by 5px
+      second.style.display = "block";
 
-        const totalSeconds = Math.floor(
-          (x / bounds.width) * recordData.durationSeconds
-        );
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = totalSeconds % 60;
-        const formattedSecond = `${minutes
-          .toString()
-          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-        second.textContent = formattedSecond;
-      });
+      const totalSeconds = Math.floor(
+        (x / bounds.width) * recordData.durationSeconds
+      );
 
-    document
-      .querySelector(".record-timeline .data")
-      .addEventListener("mouseleave", function () {
-        document.querySelector(".record-straight").style.display = "none";
-        document.querySelector(".record-time").style.display = "none";
-      });
-  } else {
-    document
-      .querySelector(".record-timeline")
-      .addEventListener("mousemove", function (e) {
-        const straight = document.querySelector(".record-straight");
-        const second = document.querySelector(".record-time");
-        const bounds = this.getBoundingClientRect();
-        const x = e.clientX - bounds.left;
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      const formattedSecond = `${minutes.toString().padStart(2, "0")}:${seconds
+        .toString()
+        .padStart(2, "0")}`;
+      second.textContent = formattedSecond;
+    });
 
-        straight.style.left = `${x}px`;
-        straight.style.display = "block";
+  document
+    .querySelector(".record-timeline .data")
+    .addEventListener("mouseleave", function () {
+      document.querySelector(".record-straight").style.display = "none";
+      document.querySelector(".record-time").style.display = "none";
+    });
 
-        second.style.left = `${x}px`; // Offset by 5px
-        second.style.display = "block";
+  document
+    .querySelector(".record-timeline .non-data")
+    .addEventListener("mousemove", function (e) {
+      const straight = document.querySelector(".record-straight");
+      const second = document.querySelector(".record-time");
+      const bounds = this.getBoundingClientRect();
+      const x = e.clientX - bounds.left;
 
-        const totalSeconds = Math.floor(
-          (x / bounds.width) * recordData.durationSeconds
-        );
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = totalSeconds % 60;
-        const formattedSecond = `${minutes
-          .toString()
-          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-        second.textContent = formattedSecond;
-      });
+      straight.style.left = `${
+        x + dataContainer.getBoundingClientRect().width
+      }px`;
 
-    document
-      .querySelector(".record-timeline .data")
-      .addEventListener("mouseleave", function () {
-        document.querySelector(".record-straight").style.display = "none";
-        document.querySelector(".record-time").style.display = "none";
-      });
-  }
-}, 2000);
+      straight.style.display = "block";
+
+      second.style.left = `${
+        x + dataContainer.getBoundingClientRect().width - 50
+      }px`;
+      second.style.display = "block";
+
+      const totalSeconds = Math.floor(
+        (x / bounds.width) * (this.getBoundingClientRect().width / 4.1) +
+          recordData.durationSeconds
+      );
+
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      const formattedSecond = `${minutes.toString().padStart(2, "0")}:${seconds
+        .toString()
+        .padStart(2, "0")}`;
+      second.textContent = formattedSecond;
+    });
+
+  document
+    .querySelector(".record-timeline .non-data")
+    .addEventListener("mouseleave", function () {
+      document.querySelector(".record-straight").style.display = "none";
+      document.querySelector(".record-time").style.display = "none";
+    });
+}, 1000);

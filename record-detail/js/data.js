@@ -3,11 +3,12 @@ export const data = {
     spoken: [
       {
         speaker: "agent",
-        startTimestamp: 41,
+        startTimestamp: 40,
         endTimestamp: 50,
         text: "I understand. That's better not Uh, kind of quality. We guarantee our customer. Do you have the model number and it was J Days handy.",
         decibelLevels: {
-          41: "82.59 dB",
+          40: "81.28 dB",
+          41: "81.28 dB",
           42: "82.28 dB",
           43: "81.16 dB",
           44: "80.75 dB",
@@ -79,7 +80,11 @@ export const data = {
       text: "We're arrange for a replacement for to be sent out to you immediately",
       sentiment: "positive",
     },
-    durationSeconds: 240,
-    issueDetected: 88,
+    issueDetected: {
+      speaker: "agent",
+      startTimestamp: 89,
+      text: "Absolutely. We're arrange for a replacement for to be sent out to you immediately.",
+    },
+    durationSeconds: 600,
   },
 };

@@ -105,7 +105,28 @@
 /* --------------------------------COL2 */
 .section2 .row .col2{
     width: 34%;
-    height: 251px;
+    height: 280px;
+}
+
+.section2 .row .col2 > section:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section2 .row .col2 > section:last-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.section2 .row .col2 > section:last-child a{
+    margin-top: 20px;
+    color: rgb(0, 120, 195);
+    text-decoration: none;
+    font-size: 1rem;
 }
 
 
@@ -122,5 +143,4 @@
     .section2 .row .col2{
         width: 100%;
     }
-    
 }

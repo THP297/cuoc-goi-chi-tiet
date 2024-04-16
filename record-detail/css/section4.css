@@ -3,50 +3,93 @@
 }
 
 .section4 .second-row{
-    border: 1px solid rgba(0,0,0,0.7);
-}
+    border-top: 1px solid rgba(0,0,0,0.5);
 
+}
 
 .section4 .second-row .record{
     display: flex;
 }
 
-.section4 .second-row .record .speaker{
-    width: 5%;
-}
+
 
 .section4 .second-row .record .record-timeline{
+    width: 100%;
+}
+
+.section4 .second-row .record .record-timeline .container{
     position: relative;
     display: flex;
-    width: 95%;
+    width: 100%;
     cursor: pointer;
 }
 
 
-.section4 .second-row .record .record-timeline .non-data{
-    background-color: rgb(201, 200, 200);
+/* -------------------------------------------RECORD----------------------- */
+
+/* general */
+
+.section4 .second-row .record .record-timeline .container .non-data .agent-sentiment,
+.section4 .second-row .record .record-timeline .container .non-data .customer-sentiment,
+.section4 .second-row .record .record-timeline .container .data .agent-sentiment,
+.section4 .second-row .record .record-timeline .container .data .customer-sentiment,
+.section4 .second-row .record .separator .agent-sentiment,
+.section4 .second-row .record .separator .customer-sentiment,
+.section4 .second-row .record .speaker .agent-sentiment,
+.section4 .second-row .record .speaker .customer-sentiment{
+    height: 10px;
+    background-color: white;
+    position: relative;
+    border-top: 1px solid rgb(211, 211, 211);
+    border-bottom: 1px solid rgb(211, 211, 211);
 }
 
-
-/* ----------------------------record has data */
-.section4 .second-row .record .record-timeline .data .agent-decibel,
-.section4 .second-row .record .record-timeline .data .customer-decibel{
-    background-color: rgba(0,0,0,0.1);
+.section4 .second-row .record .record-timeline .container .data .agent-decibel,
+.section4 .second-row .record .record-timeline .container .data .customer-decibel,
+.section4 .second-row .record .record-timeline .container .non-data .agent-decibel,
+.section4 .second-row .record .record-timeline .container .non-data .customer-decibel{
     height: 75px;
     position: relative;
-    width: 100%;
-}
-
-.section4 .second-row .record .record-timeline .data .agent-sentiment,
-.section4 .second-row .record .record-timeline .data .customer-sentiment{
-    height: 10px;
-    background-color: rgb(154, 216, 235);
-    position: relative;
-    width: 100%;
 }
 
 
-.record-straight {
+.section4 .second-row .record .data .space,
+.section4 .second-row .record .non-data .space,
+.section4 .second-row .record .separator .space
+{
+    height: 30px;
+}
+
+/* ----------------------------record non data */
+
+.section4 .second-row .record .record-timeline .container .non-data .agent-decibel,
+.section4 .second-row .record .record-timeline .container .non-data .customer-decibel{
+    background-color: white;
+}
+.section4 .second-row .record .record-timeline .container .non-data{
+    min-width: 50px;
+    border-left: 2px solid black;
+}
+
+/* ----------------------------record has data */
+
+
+.section4 .second-row .record .record-timeline .container .data .agent-decibel,
+.section4 .second-row .record .record-timeline .container .data .customer-decibel{
+    background-color: rgba(0,0,0,0.1);
+}
+
+.section4 .second-row .record .record-timeline .container .data .agent-sentiment,
+.section4 .second-row .record .record-timeline .container .data .customer-sentiment{
+    border-right: 1px solid rgb(211, 211, 211);
+
+}
+
+.section4 .second-row .record .record-timeline .container .data .space{
+    background-color: rgba(0,0,0,0.1);
+}
+
+.section4 .second-row .record .record-timeline .container .record-straight {
     position: absolute;
     height: 100%; /* Full height of the timeline */
     width: 2px;
@@ -56,9 +99,10 @@
     pointer-events: none; /* Ensures it doesn't interfere with other mouse events */
 }
 
-.record-time {
+.section4 .second-row .record .record-timeline .container .record-time {
     position: absolute;
     top: 0;
+    left: 0;
     background: #f0f0f0;
     padding: 5px;
     border-radius: 4px;
@@ -71,3 +115,225 @@
     bottom: 0; /* Align to the bottom */
     background-color: rgb(41, 93, 153); /* Semi-transparent blue */
 }
+
+/* ----------------------------speaker */
+
+.section4 .second-row .record .speaker{
+    width: fit-content;
+}
+
+.section4 .second-row .record .speaker .agent-decibel,
+.section4 .second-row .record .speaker .customer-decibel{
+    background-color: rgba(0,0,0,0.1);
+    height: 75px;
+}
+
+
+.section4 .second-row .record .speaker .space{
+    background-color: rgba(0,0,0,0.1);
+    height: 70px;
+}
+
+
+.section4 .second-row .record .speaker .agent-sentiment p,
+.section4 .second-row .record .speaker .customer-sentiment p{
+    background-color: white;
+    /* Apply border-radius to top-right and bottom-right corners */
+    border-radius: 0 0 10px 0;
+    padding: 2px 10px 2px 10px;
+    width: 100%;
+}
+
+
+/* ----------------------------separator*/
+.section4 .second-row .record .separator .agent-decibel,
+.section4 .second-row .record .separator .customer-decibel{
+    background-color: white;
+    width: 10px;
+    height: 75px;
+    border-left: 1px solid rgba(0,0,0,0.3);
+}
+
+.section4 .second-row .record .separator .space{
+    border-left: 1px solid rgba(0,0,0,0.3);
+}
+
+.section4 .second-row .record .separator .addition{
+    height: 40px;
+    background-color: rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+
+
+/* ----------------------------timeline*/
+.section4 .second-row .record .record-timeline .timeline{
+    height: 40px;
+    background-color: rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0,0,0,0.2);
+    width: 100%;
+    display: flex;
+}
+
+.section4 .second-row .record .record-timeline .timeline > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+.section4 .second-row .record .record-timeline .timeline .dash{
+    width: 1px;
+    height: 5px;
+    background-color: rgba(0,0,0,0.7);
+
+}
+
+
+/* ------------------------------------RECORD CONTROL-------------------------*/
+
+#record-control .section-wrapper{
+    border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+/* section1 */
+.section4 #record-control section div,
+.section4 #record-control section{
+    display: flex;
+    align-items: center;
+}
+
+.section4 #record-control  .section1{
+    justify-content: space-between;
+}
+
+
+.section4 #record-control  .section1 .toggle #first{
+    margin-right: 20px;
+}
+
+.section4 #record-control  .section1 .headline{
+    width: 150px;
+}
+
+
+.section4 #record-control button[id="outcome"]{
+    border: none;
+    background-color: rgb(221, 237, 241);
+    padding: 5px 10px 5px 10px;
+    border-radius: 6px;
+}
+
+.section4 #record-control button[id="outcome"]:hover{
+    background-color: rgb(65, 82, 102);
+    color: white;
+}
+
+.section4 #record-control button[id="outcome"] p{
+    text-decoration: underline;
+    font-size: 1rem;
+}
+
+.section4 #record-control .section1 .toggle #second img,
+.section4 #record-control .section1 .toggle #first img{
+    width: 35px;
+    height: 35px;
+}
+
+.section4 #record-control .section1 .toggle #first button,
+.section4 #record-control .section1 .toggle #second button{
+    margin-left: 20px;
+    border: none;
+    height: fit-content;
+    width: fit-content;
+    background: none;
+}
+
+.section4 #record-control .section1 .toggle #first,
+.section4 #record-control .section1 .toggle #second{
+    display: flex;
+    align-items: center;
+}
+
+
+/* section2 */
+
+.section4 #record-control  .section12 > div:first-child{
+    align-items: center;
+}
+
+.section4 #record-control  .section2 .headline{
+    width: 150px;
+}
+
+
+/* ------------------------------------RECORD CONTENT--------------------------*/
+
+#record-content{
+    padding: 0px 44px 23px 20px;
+    background-color: white;
+    height: 485px;
+    overflow-y: auto;
+}
+
+#record-content section{
+    padding-top: 30px;
+}
+
+/* general */
+
+#record-content .customer #row1 div > p:last-child,
+#record-content .agent #row1 div > p:last-child{
+    color: rgb(0, 100, 158);
+    cursor: pointer;
+}
+
+#record-content .customer #row1 div > p:first-child,
+#record-content .agent #row1 div > p:first-child{
+    margin-right: 15px;
+}
+
+#record-content .customer #row1 div,
+#record-content .customer #row2,
+#record-content .agent #row1 div,
+#record-content .agent #row2{
+    display: flex;
+    align-items: center;
+}
+
+#record-content .customer #row2 div,
+#record-content .agent #row2 div{
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 10px 30px 10px 30px;
+    border-radius: 6px;
+}
+
+/* Agent */
+
+#record-content .agent #row1 div{
+    justify-content: flex-end;
+    margin-right: 52px;
+    margin-bottom: 10px;
+}
+
+#record-content .agent #row2 div{
+    margin-left: 52px;
+    margin-right: 30px;
+}
+
+/* Customer */
+
+#record-content .customer #row1 div{
+    justify-content: flex-start;
+    margin-left: 52px;
+    margin-bottom: 10px;
+}
+
+#record-content .customer #row2 div{
+    margin-right: 52px;
+    margin-left: 30px;
+    background-color: rgb(239, 239, 239);
+
+}
+
