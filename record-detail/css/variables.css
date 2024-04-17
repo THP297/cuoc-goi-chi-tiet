@@ -4,7 +4,7 @@
     --section-font-size: 1.2rem;
     --content-padding: 23px;
     /* section3 */
-    /* No longer needed: --emotion-text--font-size: 0.8125rem; */
+    --emotion-text--font-size: 0.8125rem;
     /* section5 - 9 */
     --key-width: 17%;
   }
@@ -13,11 +13,12 @@
     font-size: var(--section-font-size);
   }
   
+  
   .parameter-attr {
     color: var(--parameter-color);
     font-size: var(--parameter-font-size);
     padding: 10px 0 0 0;
-    font-family: AmazonEmber_Rg, Helvetica, sans-serif;
+    /* font-family: AmazonEmber_Rg, Helvetica, sans-serif; */
   }
   
   .content-padding {
@@ -28,7 +29,7 @@
   
   .parameter-value {
     font-size: 0.875rem;
-    font-family: AmazonEmber_Md, AmazonEmber_Rg, Helvetica, sans-serif;
+    /* font-family: AmazonEmber_Md, AmazonEmber_Rg, Helvetica, sans-serif; */
     font-weight: 400;
   }
   
@@ -43,4 +44,4 @@
         --key-width: 20%;
     }
   }
-  
+
